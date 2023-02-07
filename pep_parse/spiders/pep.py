@@ -3,14 +3,14 @@ import scrapy
 
 from pep_parse.items import PepParseItem
 
-pattern = r'(PEP \d+)'
+from pep_parse.constants import DOMAIN, PATTERN, START_URL
 
 
 class PepSpider(scrapy.Spider):
 
     name = 'pep'
-    allowed_domains = ['peps.python.org']
-    start_urls = ['https://peps.python.org/']
+    allowed_domains = DOMAIN
+    start_urls = START_URL
 
     def parse(self, response):
         pep_common_list = response.xpath('//*[@id="numerical-index"]')
@@ -23,7 +23,7 @@ class PepSpider(scrapy.Spider):
     def parse_pep(self, response):
         data = {
             'number': re.search(
-                pattern,
+                PATTERN,
                 response.css('h1.page-title::text').get()
             ).groups(),
             'name': response.css('h1.page-title::text').get(),
