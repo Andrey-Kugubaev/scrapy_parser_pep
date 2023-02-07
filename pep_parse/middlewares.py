@@ -5,7 +5,10 @@ class PepParseSpiderMiddleware:
     @classmethod
     def from_crawler(cls, crawler):
         project_spider = cls()
-        crawler.signals.connect(project_spider.spider_opened, signal=signals.spider_opened)
+        crawler.signals.connect(
+            project_spider.spider_opened,
+            signal=signals.spider_opened
+        )
         return project_spider
 
     def process_spider_input(self, response, spider):
@@ -30,7 +33,10 @@ class PepParseDownloaderMiddleware:
     @classmethod
     def from_crawler(cls, crawler):
         project_spider = cls()
-        crawler.signals.connect(project_spider.spider_opened, signal=signals.spider_opened)
+        crawler.signals.connect(
+            project_spider.spider_opened,
+            signal=signals.spider_opened
+        )
         return project_spider
 
     def process_request(self, request, spider):
