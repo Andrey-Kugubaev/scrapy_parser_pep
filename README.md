@@ -8,7 +8,7 @@
 ---
 ## Contents:
 - [Introduction](#introduction)
-- [Parsing PEP documents](#parser-parsing-pep-documents)
+- [Parsing PEP documents](#parsing-pep-documents)
 - [Instruction to start](#instruction-to-start)
 
 ---
